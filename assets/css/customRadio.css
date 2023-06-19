@@ -1,0 +1,126 @@
+/* Customize the label (the containerRadioButton) */
+.containerRadioButton {
+    display: block;
+    position: relative;
+    padding: 3px 10px 3px 10px;    
+    height: 25px;
+    width: 75px;
+    border-radius: 25px;
+    border: 2px solid #009661;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden;
+  }
+  .containerRadioButton h4{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--whiteTX);
+    margin: 0;
+    font-size: 20px;
+  }
+  .filler{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    width: 200px;
+    height: 200px;
+    background-color: var(--greenTX);
+    transition: 150ms;
+
+  }
+  .containerRadioButton input:checked ~ .filler{
+    transform: translate(-50%,-50%) scale(1);
+    transition: 150ms;
+  }
+
+  /* Hide the browser's default radio button */
+  .containerRadioButton input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    height: 25px;
+    width: 25px;
+    
+    border-radius: 50%;
+    border: 2px solid #009661;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .containerRadioButton:hover input ~ .checkmark {
+    background-color: #009661;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .containerRadioButton input:checked ~ .checkmark {
+    background-color: #009661;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .containerRadioButton input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .containerRadioButton:has(input:checked){
+    box-shadow: 0 0 10px 0 var(--greenTX);
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .containerRadioButton .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+
+  .minCena,
+  .maxCena{
+    accent-color: var(--greenTX);
+  }
+
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: var(--greenTX) var(--whiteBG);
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--whiteBG);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--greenTX);
+    border-radius: 10px;
+    border: 3px solid var(--whiteBG);
+  }

@@ -1,0 +1,212 @@
+body{
+    position: relative;
+    background: var(--whiteBG);
+}
+#darkMode{ 
+  position: absolute;
+  top: 0;
+  left: 0; 
+  width: 30px;
+  height: 30px;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+  z-index: 5;
+}
+.darkMode{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
+}
+.darkModeIcon{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(../../obrazky/lightMode.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;  
+  width: 30px;
+  height: 30px;
+  z-index: 1;
+}
+
+#darkMode:checked ~ .darkModeIcon{
+  background-image: url(../../obrazky/darkMode.png);
+}
+
+:root:has(#darkMode){
+  
+    --blueBG: #36486B;
+    --blackBG: #2e3137;
+    --lessWhite: #FFFAFA;
+    --whiteBG: whitesmoke;
+    --blackTX: black;    
+    --yelTX: #dbd96d;
+    --greenTX: #04c582;
+    --mainBG: #F0F0F0;  
+    
+}
+
+:root:has(#darkMode:checked){
+  --lessWhite: #43474e;
+  --blueBG: #36486B;
+  --blackBG: whitesmoke;
+  --whiteBG: #2e3137;
+  --yelTX: #FEFBD8;
+  --greenTX: #04c582;
+  --mainBG: #F0F0F0;  
+  --whiteTX: whitesmoke;
+}
+
+.modal{   
+    width: 300px;        
+    background-color: #1A1A1A;
+    border-radius: 25px;
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transition: 250ms;
+    transform: translate(-50%,-50%) scale(0);
+    z-index: 700;
+    
+}
+.modal.active{
+    transition: 250ms;
+    transform: translate(-50%,-50%) scale(1);
+}
+.overlay{
+    background-color: rgba(0,0,0, 0.95);
+    position: absolute;
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0; 
+    opacity: 0;        
+}
+.overlay.active{
+    z-index: 600;
+    opacity: 1;
+    pointer-events: all;
+}
+.login{
+    display: none;    
+}
+.activeLogin{    
+    display: block;    
+}
+
+body:has(.overlay.active){
+    margin: 0; height: 100%; overflow: hidden;
+}
+
+.linksLogin{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+  }
+  .linksLogin h2{
+    color: #636b7b;
+    text-align: center;
+    position: relative;
+    width: 50%;
+    cursor: pointer;
+  }
+  .linksLogin h2::after{
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 10px;
+    width: 90%;
+    height: 1px;    
+    background-color: #636b7b;
+  }
+
+  .linksLogin .activeLink{color: white;}
+  .linksLogin .activeLink::after{
+    background-color: white;
+    height: 3px;
+  }
+  .linksLogin a{  
+    color: #636b7b;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  .login_btn {
+    padding: 10px;
+    width: 60%;    
+    margin-top: 10px;
+    border: 2px solid #04c582;
+    color: var(--whiteBG);
+    font-size: 14px;
+    font-weight: 700;    
+    background: var(--greenTX);    
+    border-radius: 10px;
+    transition: 250ms;
+    cursor: pointer;
+  }
+
+  .login_btn:hover{    
+    background-color: transparent;
+    color: #04c582;
+    transition: 250ms;
+  }
+  .formular, .content {
+    box-shadow: 0px 20px 33px -5px rgba(0,0,0,0.75);
+    width: 100%;
+    max-width: 450px;
+    margin: 0px auto;
+    padding: 40px;    
+    background-color: #2e3137;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: bold;
+  } 
+  .login input{
+    background-color: #636b7b;
+    color: white;
+    font-family: sans-serif;
+  }
+  .login input:focus{
+    border: none;
+    background-color: #04c582;
+    outline: none;
+    transition: 250ms;
+  }
+  .input-group {
+    margin: 20px 0;
+    width: 100%;
+  }
+  .input-group label {
+    display: block;
+    text-align: left;
+    margin: 3px;
+    padding-left: 5px;
+    color: #636b7b;
+    
+  }
+  .input-group input {
+    height: 35px;    
+    width: calc(100% - 20px);
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    
+  }
+
+  .togetherInputs{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .togetherInputs .input-group{
+    width: 45%;
+    margin: 0;
+    margin-top: 20px;
+  }
